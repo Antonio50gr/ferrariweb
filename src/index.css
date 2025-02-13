@@ -68,3 +68,65 @@ body {
 .links a:hover {
   background-color: rgba(0, 0, 0, 0.8); 
 }
+
+/* Botón Hamburguesa */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.3s;
+}
+
+.hamburger:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Menú desplegable en móviles */
+.links {
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.links.open {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+/* Mostrar menú normal hasta que choque con el logo (ajusta el ancho según lo que veas) */
+@media (max-width: 1100px) { 
+  .links {
+    display: none;
+  }
+
+  .links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Mostrar menú normal en pantallas grandes */
+@media (min-width: 1101px) {
+  .hamburger {
+    display: none;
+  }
+  .links {
+    display: flex;
+  }
+}
